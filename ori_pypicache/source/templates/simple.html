@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}PyPI Cache Simple Index{% endblock %}
+{% block content %}
+<h1>PyPI Cache Simple Index</h1>
+<p>Not normally viewed directly, use with:</p>
+<pre>pip install -i http://localhost:8000/simple </pre>
+<p>or</p>
+<pre>easy_install -i http://localhost:8000/simple </pre>
+<h2>Package Index</h2>
+<ul>
+{% for package in packages %}
+  <li><a href="/simple/{{package.name}}">{{package.name}}</a>  (@{{package.server}})</li>
+{% endfor %}
+</ul>
+{% endblock %}
